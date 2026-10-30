@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", Roboto, sans-serif;
+
+  --color-canvas: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-sidebar: #ffffff;
+  --color-ink: #111827;
+  --color-muted: #4b5563;
+  --color-faint: #6b7280;
+  --color-line: #e6e8ee;
+  --color-field: #f3f4f6;
+  --color-chip: #eef1f5;
+  --color-navy: #0e1b3d;
+  --color-navy-soft: #1b2b52;
+  --color-banner: #0b1f3a;
+  --color-on-navy: #ffffff;
+  --color-gold: #704f1a;
+  --color-gold-soft: #f6efe2;
+  --color-money: #704f1a;
+  --color-success: #17693c;
+  --color-success-soft: #e7f6ee;
+  --color-danger: #9f1d14;
+  --color-danger-soft: #fde8e6;
+  --color-warning: #8a5a00;
+  --color-warning-soft: #fef3c7;
+  --color-neutral: #3f3f46;
+  --color-neutral-soft: #f3f4f6;
+  --color-info: #0e1b3d;
+  --color-info-soft: #e8eef8;
+  --color-focus: #0e1b3d;
+
+  --radius-card: 1rem;
+  --radius-control: 0.75rem;
+  --shadow-card: 0 10px 30px rgb(15 23 42 / 0.06);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .field-control {
+    @apply w-full rounded-control border border-line bg-field px-3 py-2.5 text-sm text-ink;
+  }
+
+  .data-table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+
+  .data-table th {
+    @apply px-4 py-3 text-xs font-semibold tracking-wide text-muted uppercase;
+  }
+
+  .data-table td {
+    @apply border-t border-line px-4 py-4 text-ink;
+  }
+
+  .data-table tbody tr:hover {
+    @apply bg-chip;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
